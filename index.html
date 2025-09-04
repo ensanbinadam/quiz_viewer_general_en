@@ -3556,10 +3556,20 @@ Prepared &amp; designed by • English Department</textarea
               studentState.timeLeft=remain; updateTimerDisplay();
               if(remain<=0){ clearInterval(studentState.timerId); nextQuestion(); }
             },200);
-          }
-          function updateTimerDisplay(){ var el=document.getElementById('timer'); if(el) el.textContent = 'الوقت المتبقي: '+formatNumber(studentState.timeLeft)+' ثانية'; }
-          function updateQuestionCounter(){ var el=document.getElementById('questionCounter'); if(el) el.textContent = 'السؤال '+formatNumber(studentState.currentQuestion+1)+' من '+formatNumber(studentState.questions.length); }
-          function updateScoreCounter(){ var el=document.getElementById('scoreCounter'); if(el) el.textContent = 'الدرجات: ' + formatNumber(studentState.score) + ' من ' + formatNumber(studentState.questions.length); }
+         function updateTimerDisplay(){
+           var el = document.getElementById('timer');
+           if (el) el.textContent = 'Time left: ' + formatNumber(studentState.timeLeft) + ' seconds';
+           }
+
+           function updateQuestionCounter(){
+            var el = document.getElementById('questionCounter');
+            if (el) el.textContent = 'Question ' + formatNumber(studentState.currentQuestion + 1) + ' of ' + formatNumber(studentState.questions.length);
+            }
+
+           function updateScoreCounter(){
+            var el = document.getElementById('scoreCounter');
+            if (el) el.textContent = 'Score: ' + formatNumber(studentState.score) + ' of ' + formatNumber(studentState.questions.length);
+            }
 
           // تخطيط 4×1 الآمن
           function canApplyChosenLayout(layout, optionCount){
